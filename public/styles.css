@@ -4,4 +4,115 @@
 
 body {
     margin: 0;
+    background-color: #0B2434;
+    font-family: 'Karla';
+    font-weight: 700;
+    text-align: center;
+}
+
+.main {
+    margin: 12.5vh auto;
+    background-color: #F5F5F5;
+    width: 75vw;
+    height: 75vh;
+    border-radius: 1.25rem;
+    padding: 1rem;
+}
+
+.title {
+    margin-top: 2.5rem;
+}
+
+.description {
+    max-width: 75%;
+    margin: 2rem auto;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.dice-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+}
+
+.dice-btn {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    height: 52px;
+    width: 52px;
+    margin: 1rem auto;
+    border-radius: 4px;
+    border: none;
+    background-color: white;
+    font-family: 'Karla';
+    font-weight: 700;
+    font-size: 21px;
+    cursor: pointer;
+    /* padding: 1rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.heldBtn {
+    background-color: #59E391;
+}
+
+.roll-btn {
+    background-color: #5035FF;
+    box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+    border-radius: 4px;
+    border: none;
+    font-family: 'Karla';
+    font-weight: 700;
+    font-size: 21px;
+    padding: 0.5rem 2.75rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.roll-btn:hover {
+    background-color: #5035ffe3 
+}
+
+.roll-btn:active {
+    transform: translateX(1.5px) translateY(1.5px);
+}
+
+@media screen and (min-width: 800px) and (max-width: 1536px) {
+    .main {
+        width: 40vw;
+        /* height: 75vh;
+        margin: 12.5vh auto; */
+    }
+    .description {
+        max-width: 65%;
+    }
+}
+
+@media screen and (max-height: 668px) {
+    .main {
+        height: 75vh;
+        margin: 12.5vh auto;
+    }
+    .title {
+        margin-top: 1rem;
+    }
+    .description {
+        margin: 0.80rem auto;
+        font-size: rem;
+    }
+    .dice-container {
+        margin: 0.60rem;
+    }
+    .dice-btn {
+        font-size: 1rem;
+        height: 32px;
+        width: 32px;
+    }
 }
