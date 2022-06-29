@@ -53,7 +53,7 @@ function App() {
             if (bestScore === 0) {
                 setBestScore(rolls);
             }
-            if (bestScore > JSON.parse(localStorage.getItem('rolls'))) {
+            if (bestScore > rolls) {
                 setBestScore(rolls);        
             }
             setRolls(-1);
@@ -61,10 +61,10 @@ function App() {
     }
 
     function countRolls() {
-        localStorage.setItem('rolls', JSON.stringify(rolls+1));
+        // localStorage.setItem('rolls', JSON.stringify(rolls+1));
         setRolls(prevRolls => prevRolls+1);
         console.log("best: ", bestScore);
-        console.log("rolls from local: ", JSON.parse(localStorage.getItem('rolls')));
+        // console.log("rolls from local: ", JSON.parse(localStorage.getItem('rolls')));
     }
 
     const die = diceElements.map(diceElement => (
