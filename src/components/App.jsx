@@ -10,7 +10,7 @@ function App() {
 
     const [rolls, setRolls] = useState(0);
     const [bestScore, setBestScore] = useState(0);
-    
+
     function generateNewDie() {
         return {
             id: nanoid(),
@@ -92,7 +92,13 @@ function App() {
 
     return (
         <main className="main">
-            {tenzies && <Confetti />}
+            {
+                tenzies && 
+                <Confetti
+                    width={window.innerWidth}
+                    height={window.innerHeight}
+                />
+            }
             <h1 className="title">Tenzies</h1>
             <h4 className="description">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h4>
             <div className="dice-container">
