@@ -7,6 +7,9 @@ function App() {
     const [diceElements, setDiceElements] = useState(allNewDice());
     // state to check if user has won the game
     const [tenzies, setTenzies] = useState(false);
+
+    const [rolls, setRolls] = useState(0);
+    const [bestScore, setBestScore] = useState(0);
     
     function generateNewDie() {
         return {
@@ -47,7 +50,21 @@ function App() {
         } else {
             setTenzies(false);
             setDiceElements(allNewDice());
+            if (bestScore === 0) {
+                setBestScore(rolls);
+            }
+            if (bestScore > JSON.parse(localStorage.getItem('rolls'))) {
+                setBestScore(rolls);        
+            }
+            setRolls(-1);
         }
+    }
+
+    function countRolls() {
+        localStorage.setItem('rolls', JSON.stringify(rolls+1));
+        setRolls(prevRolls => prevRolls+1);
+        console.log("best: ", bestScore);
+        console.log("rolls from local: ", JSON.parse(localStorage.getItem('rolls')));
     }
 
     const die = diceElements.map(diceElement => (
@@ -83,7 +100,10 @@ function App() {
             </div>
             <button 
                 className="roll-btn"
-                onClick={rollDice}
+                onClick={() => {
+                    rollDice();
+                    countRolls();
+                }}
             >
                     {
                         tenzies ? 
@@ -91,6 +111,10 @@ function App() {
                         "Roll"
                     }
             </button>
+            <div className="score-details">
+                <p className="score">Number of rolls: {rolls}</p>
+                <p className="best-score">Best Score: {bestScore}</p>
+            </div>
         </main>
     );
 };
